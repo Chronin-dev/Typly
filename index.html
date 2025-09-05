@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typly - Distraction-Free Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header class="stats-bar">
+        <div id="left-controls">
+            <button id="new-btn" class="control-btn"><i class="fas fa-plus"></i> New</button>
+            <button id="open-btn" class="control-btn"><i class="fas fa-folder-open"></i> Open</button>
+        </div>
+        <div id="word-count">0 characters</div>
+        <div id="right-controls">
+            <button id="settings-btn" class="control-btn"><i class="fas fa-gear"></i></button>
+            <button id="more-options-btn" class="control-btn">···</button>
+            <button id="about-btn" class="control-btn"><i class="fas fa-info-circle"></i></button>
+        </div>
+    </header>
+
+    <main class="editor-container">
+        <textarea id="typly-editor" placeholder="Start writing your masterpiece..."></textarea>
+    </main>
+
+    <div id="open-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Open</h2>
+            <button id="open-file-btn" class="modal-btn">Open from File</button>
+            <h3>Browser Cache</h3>
+            <div id="cache-list">
+                </div>
+        </div>
+    </div>
+    
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Settings</h2>
+            <div class="setting-group">
+                <label for="bg-color-picker">Background:</label>
+                <input type="color" id="bg-color-picker">
+            </div>
+            <div class="setting-group">
+                <label for="font-color-picker">Font Color:</label>
+                <input type="color" id="font-color-picker">
+            </div>
+            <div class="setting-group">
+                <label for="font-size-input">Font Size:</label>
+                <input type="number" id="font-size-input" min="10" max="48" value="20">
+            </div>
+            <div class="setting-group">
+                <label for="font-family-select">Font:</label>
+                <select id="font-family-select">
+                    <option value="serif">Serif</option>
+                    <option value="sans-serif">Sans-Serif</option>
+                    <option value="monospace">Monospace</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Courier New">Courier New</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <label for="line-height-input">Line Height:</label>
+                <input type="number" id="line-height-input" step="0.1" min="1" max="3" value="1.6">
+            </div>
+            <div class="setting-group">
+                <label for="width-input">Width (px):</label>
+                <input type="number" id="width-input" min="400" max="1200" value="800">
+            </div>
+            <div class="setting-group">
+                <label>Character Count:</label>
+                <div class="switch-container">
+                    <input type="checkbox" id="stats-toggle" checked>
+                    <span class="slider"></span>
+                </div>
+            </div>
+            <div class="setting-group">
+                <label>Scrollbar:</label>
+                <div class="switch-container">
+                    <input type="checkbox" id="scrollbar-toggle" checked>
+                    <span class="slider"></span>
+                </div>
+            </div>
+            <button id="restore-defaults-btn">Restore Defaults</button>
+        </div>
+    </div>
+
+    <div id="about-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img src="Typly.webp" alt="Typly Logo" class="modal-image">
+            <p>Typly is a clean, <strong>distraction-free writing application</strong> designed for focus. It saves your work automatically to your browser's local storage, ensuring your progress is always safe.</p>
+            <p><strong>Features:</strong></p>
+            <ul>
+                <li>Distraction-free writing environment</li>
+                <li>Real-time character count</li>
+                <li>Auto-save to browser cache</li>
+                <li>Import and export of `.txt` files</li>
+                <li>Customizable settings (font, colors, width)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="more-options-menu" class="dropdown-menu">
+        <a href="#" id="import-btn"><i class="fas fa-upload"></i> Upload</a>
+        <a href="#" id="download-btn"><i class="fas fa-download"></i> Download</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
